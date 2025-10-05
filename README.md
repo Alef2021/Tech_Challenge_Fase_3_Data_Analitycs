@@ -58,4 +58,37 @@ A análise dos dados de Julho, Setembro e Novembro de 2020 revelou padrões impo
     * **Situação de Trabalho (C001):** A maioria dos casos positivos **trabalhou na semana de referência**.
     * **Distanciamento Social (Com Sintomas):** A maior parte dos casos sintomáticos reportou ter ficado **"Rigorasamente em Isolamento Domiciliar"**.
     * **Comportamento Assintomático:** A maioria dos **assintomáticos positivos** reportou **"Diminuir o contato, mas continua saindo"** ou **"Manteve a rotina normal"**, reforçando a circulação de pessoas.
-    * **Tipo de Ocupação (C007C):** Os **Trabalhadores dos serviços, vendedores do comércio e de mercados** e **Trabalhadores da produção de bens e serviços** representam a maioria dos casos entre os trabalhadores, indicando maior exposição
+    * **Tipo de Ocupação (C007C):** Os **Trabalhadores dos serviços, vendedores do comércio e de mercados** e **Trabalhadores da produção de bens e serviços** representam a maioria dos casos entre os trabalhadores, indicando maior exposição.
+    * **Local de Trabalho (C012):** A maioria dos trabalhadores positivos **exerceu suas atividades presencialmente**.
+
+---
+
+## 🏥 Ações Estratégicas para o Hospital em um Novo Surto
+
+Com base nesta análise, o hospital deverá tomar as seguintes ações para o planejamento de um novo surto:
+
+1.  **Foco em Recursos e Logística:**
+    * **Alocação de Leitos:** Direcionar o **maior volume de recursos e leitos** para o tratamento da **população adulta (13-59 anos)**.
+    * **Triagem e Comunicação:** Priorizar a triagem para os sintomas mais comuns (**Dor de Cabeça, Coriza, Fadiga**).
+    * **Foco Geográfico:** Investir em campanhas de saúde pública e planejamento logístico na **área urbana** e nos estados com maior incidência.
+
+2.  **Estratégia de Testagem (Contenção da Transmissão):**
+    * **Testagem em Massa:** Devido à alta taxa de **assintomáticos positivos** e sua circulação, o hospital deve apoiar e/ou implementar um programa de **testagem regular e ampla** (não apenas sintomáticos) para monitorar a disseminação.
+
+3.  **Saúde Ocupacional e Setores de Risco:**
+    * **Parcerias com Setores de Serviço:** Estabelecer parcerias com empresas de **serviços, comércio e produção** para oferecer **testagem prioritária**, visando proteger os grupos de trabalho com maior exposição.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Python
+* **Processamento de Dados:** **PySpark** (para simular o processamento em ambiente de Nuvem/Big Data)
+* **Manipulação e Análise:** Pandas, Numpy
+* **Visualização de Dados:** Matplotlib, Seaborn
+
+## 🚀 Como Executar o Projeto
+
+1.  **Pré-requisitos:** Certifique-se de ter um ambiente com **Python**, **PySpark** e as bibliotecas **Pandas**, **Numpy**, **Matplotlib** e **Seaborn** instaladas.
+2.  **Dados:** Baixe os microdados e a documentação (dicionário) da PNAD-COVID19 (Julho, Setembro e Novembro de 2020) no site do IBGE e organize os arquivos no diretório do projeto.
+3.  **Execução:** Execute as células do arquivo `POS-TECHCHALLENGE-3.ipynb` em sequência.
