@@ -2,13 +2,16 @@
 
 ## 🎯 Objetivo do Projeto
 
-Este projeto, desenvolvido como parte do curso de Pós-Graduação em Data Analytics da POS TECH - DATA ANALYTICS, visa analisar o comportamento da população brasileira durante a pandemia da COVID-19. O foco é extrair **indicadores cruciais** a partir dos microdados da PNAD-COVID19 do IBGE (Julho, Setembro e Novembro de 2020) para auxiliar um grande hospital no **planejamento e tomada de decisões estratégicas em um novo surto**.
+Este projeto, desenvolvido como parte do curso de Pós-Graduação em Data Analytics da **POS TECH**, visa analisar o comportamento da população brasileira durante a pandemia da COVID-19. O foco é extrair **indicadores cruciais** a partir dos microdados da PNAD-COVID19 do IBGE aos 3 meses (referentes a Julho, Setembro e Novembro de 2020) para auxiliar um grande hospital no **planejamento e tomada de decisões estratégicas em um novo surto**
 
----
+* **Página Oficial:** [IBGE - PNAD COVID-19](https://covid19.ibge.gov.br/pnad-covid/)
 
-## 📊 Perguntas e Variáveis Selecionadas
 
-Para a análise, foram utilizados **24 questionamentos** (dentro do limite de 20 a 25) do microdado PNAD-COVID19, organizados em quatro dimensões:
+
+## 📊 Variáveis Selecionadas
+
+Para a construção da solução, foram selecionados **20 questionamentos-chave** da pesquisa, além de 4 variáveis de controle para identificação única dos registros. 
+A seleção abrange as três dimensões solicitadas no desafio: Características da População, Sintomas Clínicos e Características Econômicas.
 
 | Variável Original | Descrição da Variável | Dimensão |
 | :--- | :--- | :--- |
@@ -24,7 +27,7 @@ Para a análise, foram utilizados **24 questionamentos** (dentro do limite de 20
 | `B0014` | Sintoma: Dificuldade de respirar | Sintomas Clínicos |
 | `B0018` | Sintoma: Nariz entupido ou escorrendo (Coriza) | Sintomas Clínicos |
 | `B0019` | Sintoma: Fadiga | Sintomas Clínicos |
-| `B00111` | Sintoma: Perda de olfato ou paladar | Sintomas Clínicos |
+| `B00111`| Sintoma: Perda de olfato ou paladar | Sintomas Clínicos |
 | `B009B` | Teste: Resultado do exame de SWAB/PCR | Sintomas Clínicos |
 | `B009D` | Teste: Resultado do teste rápido por punção digital | Sintomas Clínicos |
 | `B009F` | Teste: Resultado do teste por sangue da veia | Sintomas Clínicos |
@@ -32,63 +35,76 @@ Para a análise, foram utilizados **24 questionamentos** (dentro do limite de 20
 | `C001` | Trabalhou na semana de referência | Econômica |
 | `C007C` | Tipo de Ocupação | Econômica |
 | `C007E` | Número de empregados | Econômica |
-| `C012` | Local onde exercia o trabalho na semana de referência (Presencial, Remoto, Afastado) | Econômica |
+| `C012` | Local onde exercia o trabalho (Presencial/Remoto) | Econômica |
 | `A001` | Número de ordem do morador | Identificação/Controle |
 | `V1008` | Número de seleção do domicílio | Identificação/Controle |
 | `UPA` | Unidade Primária de Amostragem | Identificação/Controle |
-
----
 
 ## 💡 Análise Detalhada dos Indicadores
 
 A análise dos dados de Julho, Setembro e Novembro de 2020 revelou padrões importantes:
 
-1.  **Perfil da População e Localização:**
-    * **Faixa Etária:** A maior concentração de casos positivos está na **faixa Adulto (13-59 anos)**.
-    * **Gênero:** Há uma distribuição relativamente igual, com leve **predomínio feminino** entre os casos positivos.
-    * **Localização (Urbana/Rural):** A **área urbana** concentra a vasta maioria dos casos positivos.
-    * **Localidades de Risco (UF):** **São Paulo** lidera em número de casos positivos.
+#### 1. Perfil da População e Localização
+* **Faixa Etária:** A maior concentração de casos positivos está na faixa de **30 a 49 anos**, seguida pela de 18 a 29 anos, indicando alta transmissão na população economicamente ativa.
+* **Gênero:** Há uma distribuição relativamente igual, com um leve **predomínio feminino** entre os casos positivos.
+* **Localização (Urbana/Rural):** A **área urbana** concentra a vasta maioria dos casos positivos, refletindo a maior densidade populacional.
+* **Localidades de Risco (UF):** **São Paulo** lidera em número absoluto de casos positivos, seguido por outros grandes centros urbanos, o que demanda atenção especial a essas regiões.
 
-2.  **Caracterização Clínica (Sintomas e Testagem):**
-    * **Sintomas:** O sintoma mais comum é a **Dor de Cabeça**, seguido por **Coriza** (Nariz entupido ou escorrendo) e **Fadiga**.
-    * **Assintomáticos:** A proporção de **casos positivos assintomáticos** é significativa (aprox. **30%**).
-    * **Resultados de Teste:** O **Teste Rápido (Sangue da Veia)** e o **SWAB/PCR** são os tipos de teste mais realizados.
+#### 2. Caracterização Clínica (Sintomas e Testagem)
+* **Sintomas Prevalentes:** **Dor de cabeça**, **Tosse** e **Febre** foram os sintomas mais frequentemente relatados entre os pacientes que testaram positivo. A perda de olfato/paladar também se mostrou um indicador relevante.
+* **Casos Assintomáticos:** Uma parcela significativa dos infectados (cerca de 30-40%) se declarou **assintomática**, com maior incidência em faixas etárias mais jovens. Este é um indicador crítico, pois representam um foco de transmissão silenciosa.
+* **Testagem:** O teste **SWAB (RT-PCR)** foi o mais realizado, indicando uma busca por diagnósticos mais precisos durante o período analisado.
 
-3.  **Comportamento e Economia:**
-    * **Situação de Trabalho (C001):** A maioria dos casos positivos **trabalhou na semana de referência**.
-    * **Distanciamento Social (Com Sintomas):** A maior parte dos casos sintomáticos reportou ter ficado **"Rigorasamente em Isolamento Domiciliar"**.
-    * **Comportamento Assintomático:** A maioria dos **assintomáticos positivos** reportou **"Diminuir o contato, mas continua saindo"** ou **"Manteve a rotina normal"**, reforçando a circulação de pessoas.
-    * **Tipo de Ocupação (C007C):** Os **Trabalhadores dos serviços, vendedores do comércio e de mercados** e **Trabalhadores da produção de bens e serviços** representam a maioria dos casos entre os trabalhadores, indicando maior exposição.
-    * **Local de Trabalho (C012):** A maioria dos trabalhadores positivos **exerceu suas atividades presencialmente**.
+#### 3. Comportamento e Impacto Econômico
+* **Distanciamento Social:** A maioria da população positiva (tanto sintomática quanto assintomática) relatou ter ficado em casa, saindo apenas para necessidades básicas. No entanto, uma parcela relevante apenas reduziu o contato, indicando um ponto de falha no bloqueio da transmissão.
+* **Ocupação:** Profissionais de **comércio e vendas**, **motoristas** e **trabalhadores da indústria** estão entre as ocupações com maior número de casos, sugerindo maior exposição ao vírus.
+* **Modalidade de Trabalho:** Indivíduos que trabalharam de forma **presencial ou no local de costume** apresentaram uma proporção maior de casos positivos em comparação com aqueles em trabalho remoto.
 
 ---
 
 ## 🏥 Ações Estratégicas para o Hospital em um Novo Surto
 
-Com base nesta análise, o hospital deverá tomar as seguintes ações para o planejamento de um novo surto:
+Com base nos indicadores analisados, as seguintes ações são recomendadas para o hospital:
 
-1.  **Foco em Recursos e Logística:**
-    * **Alocação de Leitos:** Direcionar o **maior volume de recursos e leitos** para o tratamento da **população adulta (13-59 anos)**.
-    * **Triagem e Comunicação:** Priorizar a triagem para os sintomas mais comuns (**Dor de Cabeça, Coriza, Fadiga**).
-    * **Foco Geográfico:** Investir em campanhas de saúde pública e planejamento logístico na **área urbana** e nos estados com maior incidência.
+1.  **Monitoramento Geográfico Focado:** Estabelecer um sistema de alerta que monitore a taxa de positividade por região (com foco nas áreas urbanas e nos estados de maior incidência, como São Paulo) para direcionar recursos (leitos, equipes, insumos) de forma proativa.
 
-2.  **Estratégia de Testagem (Contenção da Transmissão):**
-    * **Testagem em Massa:** Devido à alta taxa de **assintomáticos positivos** e sua circulação, o hospital deve apoiar e/ou implementar um programa de **testagem regular e ampla** (não apenas sintomáticos) para monitorar a disseminação.
+2.  **Campanhas de Comunicação Segmentadas:** Desenvolver campanhas de prevenção direcionadas aos grupos de maior risco identificados: a população economicamente ativa (30-49 anos) e profissionais de ocupações de alta exposição. A comunicação deve focar em segurança no ambiente de trabalho e nos sintomas mais comuns.
 
-3.  **Saúde Ocupacional e Setores de Risco:**
-    * **Parcerias com Setores de Serviço:** Estabelecer parcerias com empresas de **serviços, comércio e produção** para oferecer **testagem prioritária**, visando proteger os grupos de trabalho com maior exposição.
+3.  **Planejamento de Triagem para Assintomáticos:** Criar protocolos de testagem que não dependam exclusivamente da presença de sintomas. A testagem ativa em empresas de setores críticos e na comunidade é fundamental para identificar e isolar os focos de transmissão silenciosa.
+
+4.  **Gestão de Estoques Baseada em Sintomas:** Gerenciar o estoque de medicamentos e equipamentos com base nos sintomas mais prevalentes (antitérmicos, analgésicos) e nos mais graves (equipamentos de suporte respiratório), garantindo a preparação para os cenários clínicos mais prováveis.
+
+5.  **Fortalecer a Comunicação sobre Isolamento:** A comunicação do hospital deve ser clara e incisiva sobre a importância do isolamento imediato ao primeiro sinal de sintoma, educando a população de que mesmo casos leves têm alto potencial de transmissão.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Linguagem:** Python
-* **Processamento de Dados:** **PySpark** (para simular o processamento em ambiente de Nuvem/Big Data)
-* **Manipulação e Análise:** Pandas, Numpy
-* **Visualização de Dados:** Matplotlib, Seaborn
+* **Linguagem:** Python & SQL
+* **Processamento de Dados:** Apache Spark (PySpark)
+* **Manipulação de Dados:** Pandas
+* **Visualização de Dados:** Matplotlib & Seaborn
+* **Ambiente de Desenvolvimento:** Jupyter Notebook, VS Code
 
-## 🚀 Como Executar o Projeto
+---
 
-1.  **Pré-requisitos:** Certifique-se de ter um ambiente com **Python**, **PySpark** e as bibliotecas **Pandas**, **Numpy**, **Matplotlib** e **Seaborn** instaladas.
-2.  **Dados:** Baixe os microdados e a documentação (dicionário) da PNAD-COVID19 (Julho, Setembro e Novembro de 2020) no site do IBGE e organize os arquivos no diretório do projeto.
-3.  **Execução:** Execute as células do arquivo `POS-TECHCHALLENGE-3.ipynb` em sequência.
+## 🚀 Como Clonar o Projeto
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/Alef2021/Tech_Challenge_Fase_3_Data_Analitycs.git
+    ```
+
+
+
+## 📚 Modelo de Dados (MER)
+
+O modelo utilizado segue o conceito de **Star Schema**. A arquitetura conta com tabelas Fato (Dados Pessoais, Trabalho, Sintomas, Isolamento Social e Testes COVID) que se conectam a diversas tabelas Dimensão (criadas a partir do dicionário de dados). Essa estrutura garante a integridade, otimiza as consultas e facilita a criação de análises. O diagrama completo está disponível no arquivo `MER.md`.
+
+---
+
+## ✍️ Autores
+
+* Alef de Souza Pereira - RM 362855
+* Alberto Marchiori - RM 362799
+* Leticia Lauria Lopes - RM 362795
