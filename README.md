@@ -40,25 +40,44 @@ A seleção abrange as três dimensões solicitadas no desafio: Características
 | `V1008` | Número de seleção do domicílio | Identificação/Controle |
 | `UPA` | Unidade Primária de Amostragem | Identificação/Controle |
 
+# Tech Challenge - Fase 3: Análise PNAD-COVID19 para Planejamento Hospitalar
+
+## 🎯 Objetivo do Projeto
+
+Este projeto, desenvolvido como parte do curso de Pós-Graduação em Data Analytics da **POS TECH**, visa analisar o comportamento da população brasileira durante a pandemia da COVID-19. O foco é extrair **indicadores cruciais** a partir dos microdados da PNAD-COVID19 do IBGE (referentes a Julho, Setembro e Novembro de 2020) para auxiliar um grande hospital no **planejamento e tomada de decisões estratégicas em um novo surto**.
+
+* **Página Oficial:** [IBGE - PNAD COVID-19](https://covid19.ibge.gov.br/pnad-covid/)
+
 ## 💡 Análise Detalhada dos Indicadores
 
-A análise dos dados de Julho, Setembro e Novembro de 2020 revelou padrões importantes:
+A análise dos dados revelou padrões importantes em três dimensões principais:
 
-#### 1. Perfil da População e Localização
-* **Faixa Etária:** A maior concentração de casos positivos está na faixa de **30 a 49 anos**, seguida pela de 18 a 29 anos, indicando alta transmissão na população economicamente ativa.
-* **Gênero:** Há uma distribuição relativamente igual, com um leve **predomínio feminino** entre os casos positivos.
-* **Localização (Urbana/Rural):** A **área urbana** concentra a vasta maioria dos casos positivos, refletindo a maior densidade populacional.
-* **Localidades de Risco (UF):** **São Paulo** lidera em número absoluto de casos positivos, seguido por outros grandes centros urbanos, o que demanda atenção especial a essas regiões.
+---
 
-#### 2. Caracterização Clínica (Sintomas e Testagem)
-* **Sintomas Prevalentes:** **Dor de cabeça**, **Tosse** e **Febre** foram os sintomas mais frequentemente relatados entre os pacientes que testaram positivo. A perda de olfato/paladar também se mostrou um indicador relevante.
-* **Casos Assintomáticos:** Uma parcela significativa dos infectados (cerca de 30-40%) se declarou **assintomática**, com maior incidência em faixas etárias mais jovens. Este é um indicador crítico, pois representam um foco de transmissão silenciosa.
-* **Testagem:** O teste **SWAB (RT-PCR)** foi o mais realizado, indicando uma busca por diagnósticos mais precisos durante o período analisado.
+### 1. Perfil da População e Localização
 
-#### 3. Comportamento e Impacto Econômico
-* **Distanciamento Social:** A maioria da população positiva (tanto sintomática quanto assintomática) relatou ter ficado em casa, saindo apenas para necessidades básicas. No entanto, uma parcela relevante apenas reduziu o contato, indicando um ponto de falha no bloqueio da transmissão.
-* **Ocupação:** Profissionais de **comércio e vendas**, **motoristas** e **trabalhadores da indústria** estão entre as ocupações com maior número de casos, sugerindo maior exposição ao vírus.
-* **Modalidade de Trabalho:** Indivíduos que trabalharam de forma **presencial ou no local de costume** apresentaram uma proporção maior de casos positivos em comparação com aqueles em trabalho remoto.
+* **Faixa Etária:** A maior concentração de casos positivos está na população economicamente ativa, na faixa de **30 a 49 anos**, que registrou 32.384 casos, seguida pelas faixas de 50-64 anos (15.912 casos) e 18-29 anos (13.101 casos).
+* **Gênero:** Há um predomínio de casos no sexo feminino, que representa **55,2%** do total de positivos, contra 44,8% do sexo masculino.
+* **Localização (Urbana/Rural):** A **área urbana** concentra a vasta maioria dos casos positivos, com 64.856 ocorrências, um número quase 7 vezes maior que os 9.478 casos da área rural.
+* **Localidades de Risco (UF):** Os estados com mais casos positivos na amostra foram **Maranhão, Rio de Janeiro e São Paulo**.
+* **População Estudante:** A população que estuda representa uma parcela significativa dos casos, correspondendo a **47,4%** do total de infectados.
+
+---
+
+### 2. Caracterização Clínica (Sintomas e Testagem)
+
+* **Sintomas Prevalentes:** Entre os pacientes que testaram positivo, os sintomas mais frequentemente relatados foram **Dor de Cabeça, Tosse e Febre**. Perda de Olfato/Paladar, Fadiga e Coriza também se mostraram relevantes.
+* **Predominância de Casos Assintomáticos:** Uma parcela massiva de **87,2%** dos infectados declarou-se **assintomática**. A contagem de casos por faixa etária confirma que os assintomáticos (em vermelho/rosa) superam em muito os sintomáticos (em roxo) em todos os grupos etários.
+* **Testagem:** O teste rápido por punção digital, **Sangue (Dedo)**, foi o mais realizado, com mais de 50.000 execuções. O **SWAB (RT-PCR)** aparece em segundo lugar, com pouco mais de 40.000 testes, seguido pelo de **Sangue (Veia)**.
+
+---
+
+### 3. Comportamento e Impacto Econômico
+
+* **Situação de Trabalho:** A atividade laboral se mostrou um fator relevante de exposição. Dos indivíduos que testaram positivo, **54,1% trabalharam** na semana de referência.
+* **Modalidade de Trabalho:** O trabalho presencial foi um fator de altíssimo risco. Dos casos positivos entre a população trabalhadora, **87,7%** ocorreram em pessoas que exerceram suas atividades de forma **presencial ou no local de costume**.
+* **Ocupação de Risco:** Profissionais da saúde (técnicos e de nível superior), outras profissões de nível superior (advogado, engenheiro, etc.), e auxiliares de escritório estão entre as categorias com maior número de casos. A faixa etária de **30 a 49 anos concentra o maior número de casos em todas as principais ocupações**.
+* **Distanciamento Social:** A principal medida de distanciamento adotada tanto por assintomáticos quanto por sintomáticos foi **"Ficou em casa e só saiu em caso de necessidade básica"**.
 
 ---
 
@@ -66,21 +85,17 @@ A análise dos dados de Julho, Setembro e Novembro de 2020 revelou padrões impo
 
 Com base nos indicadores analisados, as seguintes ações são recomendadas para o hospital:
 
-1.  **Monitoramento Geográfico Focado:** Estabelecer um sistema de alerta que monitore a taxa de positividade por região (com foco nas áreas urbanas e nos estados de maior incidência, como São Paulo) para direcionar recursos (leitos, equipes, insumos) de forma proativa.
-
-2.  **Campanhas de Comunicação Segmentadas:** Desenvolver campanhas de prevenção direcionadas aos grupos de maior risco identificados: a população economicamente ativa (30-49 anos) e profissionais de ocupações de alta exposição. A comunicação deve focar em segurança no ambiente de trabalho e nos sintomas mais comuns.
-
-3.  **Planejamento de Triagem para Assintomáticos:** Criar protocolos de testagem que não dependam exclusivamente da presença de sintomas. A testagem ativa em empresas de setores críticos e na comunidade é fundamental para identificar e isolar os focos de transmissão silenciosa.
-
-4.  **Gestão de Estoques Baseada em Sintomas:** Gerenciar o estoque de medicamentos e equipamentos com base nos sintomas mais prevalentes (antitérmicos, analgésicos) e nos mais graves (equipamentos de suporte respiratório), garantindo a preparação para os cenários clínicos mais prováveis.
-
-5.  **Fortalecer a Comunicação sobre Isolamento:** A comunicação do hospital deve ser clara e incisiva sobre a importância do isolamento imediato ao primeiro sinal de sintoma, educando a população de que mesmo casos leves têm alto potencial de transmissão.
-
----
+1.  **Monitoramento Geográfico e Demográfico Focado:** Implementar um sistema de alerta para monitorar a taxa de positividade, focando em **áreas urbanas** e nos estados de maior incidência, como **Maranhão, Rio de Janeiro e São Paulo**. Direcionar recursos de forma proativa para a população economicamente ativa (**30-49 anos**), que representa o principal vetor de transmissão.
+2.  **Campanhas de Comunicação Segmentadas:** Desenvolver campanhas de prevenção direcionadas aos grupos de maior risco: a população de **30 a 49 anos**, a **população estudantil** (que compõe 47,4% dos casos), e profissionais de ocupações com alta exposição ao trabalho presencial (87,7% dos casos em trabalhadores).
+3.  **Planejamento de Triagem para Assintomáticos:** Dada a esmagadora maioria de **casos assintomáticos (87,2%)**, criar protocolos de testagem que não dependam da presença de sintomas. A testagem ativa em empresas e instituições de ensino é fundamental para identificar e isolar os focos de transmissão silenciosa.
+4.  **Gestão de Estoques Baseada em Sintomas:** Gerenciar o estoque de medicamentos com base nos sintomas mais prevalentes (**analgésicos para dor de cabeça, antitérmicos para febre**) e nos mais graves (**equipamentos de suporte respiratório para dificuldade de respirar**).
+5.  **Fortalecer a Comunicação sobre Isolamento:** A comunicação do hospital deve ser clara sobre a importância do isolamento imediato para **qualquer pessoa com teste positivo, com ou sem sintomas**.
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **Linguagem:** Python & SQL
+* **Banco de Dados:** PostgreSQL
+* **Cloud:** Amazon RDS
 * **Processamento de Dados:** Apache Spark (PySpark)
 * **Manipulação de Dados:** Pandas
 * **Visualização de Dados:** Matplotlib & Seaborn
